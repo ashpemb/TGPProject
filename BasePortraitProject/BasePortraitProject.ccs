@@ -3,8 +3,34 @@
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
-        <Project Name="MainScene.csd" Type="Scene" />
+        <Project Name="Menu.csd" Type="Scene" />
         <Image Name="HelloWorld.png" />
+        <Project Name="Level_1.csd" Type="Scene" />
+        <Image Name="spr_stars01.png" />
+        <Image Name="spr_stars02.png" />
+        <Image Name="moon_01.png" />
+        <Image Name="moon_02.png" />
+        <Image Name="moon_03.png" />
+        <Image Name="moon_04.png" />
+        <Image Name="planet_01.png" />
+        <Image Name="planet_02.png" />
+        <Image Name="planet_03.png" />
+        <Image Name="planet_04.png" />
+        <Image Name="planet_05.png" />
+        <Image Name="planet_06.png" />
+        <Image Name="planet_07.png" />
+        <Image Name="planet_08.png" />
+        <Image Name="planet_09.png" />
+        <Image Name="planet_10.png" />
+        <Image Name="planet_11.png" />
+        <Image Name="planet_12.png" />
+        <Image Name="planet_13.png" />
+        <Image Name="planet_14.png" />
+        <Image Name="planet_15.png" />
+        <Image Name="planet_16.png" />
+        <Image Name="planet_17.png" />
+        <Project Name="Player.csd" Type="Scene" />
+        <Image Name="player.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>
