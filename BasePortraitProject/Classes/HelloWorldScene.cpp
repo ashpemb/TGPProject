@@ -30,6 +30,8 @@ bool HelloWorld::init()
     {
         return false;
     }
+
+	//test commit
     
     auto rootNode = CSLoader::createNode("MainScene.csb");
 
