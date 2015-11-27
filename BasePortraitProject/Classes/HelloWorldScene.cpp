@@ -1,6 +1,8 @@
 #include "HelloWorldScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include <algorithm>
+using namespace std;
 
 USING_NS_CC;
 
@@ -31,9 +33,62 @@ bool HelloWorld::init()
         return false;
     }
     
-    auto rootNode = CSLoader::createNode("MainScene.csb");
+    auto rootNode = CSLoader::createNode("Player.csb");
 
     addChild(rootNode);
 
+	player = rootNode->getChildByName<Sprite*>("playerShip");
+
+	auto touchListener = EventListenerTouchOneByOne::create();
+	touchListener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
+	touchListener->onTouchEnded = CC_CALLBACK_2(HelloWorld::onTouchEnded, this);
+	touchListener->onTouchMoved = CC_CALLBACK_2(HelloWorld::onTouchMoved, this);
+	touchListener->onTouchCancelled = CC_CALLBACK_2(HelloWorld::onTouchCancelled, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, rootNode);
+
+	this->scheduleUpdate();
+
     return true;
+}
+
+void HelloWorld::update(float delta)
+{
+	auto winSize = Director::getInstance()->getVisibleSize();
+	if (touching)
+	{
+		float mappedTouchX = (touchPos.x / winSize.width) * 2 - 1;//[-1, 1]
+		float moveDirection = 0;
+		float deadZone = 0.01f;
+		if (abs(mappedTouchX) > deadZone)
+		{
+			moveDirection = mappedTouchX > 0 ? 1 : -1;
+		}
+		float newPos = player->getPositionX() + moveDirection * playerSpeed * delta;
+		float playerHalfWidth = player->getBoundingBox().size.width / 2;
+		player->setPositionX(max(playerHalfWidth, min(winSize.width - playerHalfWidth, newPos)));
+	}
+	CCLOG("player pos %f, %f", player->getPositionX(), player->getPositionY());
+}
+
+bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* touchEvent)
+{
+	touchPos = touch->getLocation();
+	touching = true;
+	return true;
+}
+
+void HelloWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* touchEvent)
+{
+	touching = false;
+}
+
+void HelloWorld::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* touchEvent)
+{
+	touchPos = touch->getLocation();
+	touching = true;
+}
+
+void HelloWorld::onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* touchEvent)
+{
+	touching = false;
 }
