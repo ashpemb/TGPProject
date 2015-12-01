@@ -27,12 +27,7 @@
     </Item>
     <Item Key="TabsParamsKey">
       <Value ctype="TabsInfo">
-        <OpenedDocuments>
-          <FilePathData Path="Menu.csd" />
-          <FilePathData Path="Level_1.csd" />
-          <FilePathData Path="Player.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="Menu.csd" />
+        <ActiveDocument />
       </Value>
     </Item>
   </Properties>

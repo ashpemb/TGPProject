@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+﻿Build started 01/12/2015 11:28:27  /  11:28.
+
+Build succeeded.
+
+Time Elapsed 00:00:00.19
+=======
 ﻿Build started 27/11/2015 12:47:23.
      1>Project "C:\Users\Ashley\Documents\Github\TGPProject\BasePortraitProject\proj.win32\BasePortraitProject.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
@@ -31,3 +38,4 @@
 Build succeeded.
 
 Time Elapsed 00:00:50.85
+>>>>>>> master
