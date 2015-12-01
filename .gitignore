@@ -5,7 +5,11 @@ Debug.win32
 *.log
 *.tlog
 
-#Unknown
+#Visual Studio
 *.suo
 *.sdf
+*.opensdf
+
+#Unknown
 *.udf
+
