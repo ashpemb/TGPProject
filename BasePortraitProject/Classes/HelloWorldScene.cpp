@@ -33,6 +33,7 @@ bool HelloWorld::init()
         return false;
     }
     
+<<<<<<< HEAD
     auto rootNode = CSLoader::createNode("Player.csb");
 
     addChild(rootNode);
@@ -48,6 +49,12 @@ bool HelloWorld::init()
 	touching = false;
 
 	this->scheduleUpdate();
+=======
+    auto rootNode = CSLoader::createNode("Menu.csb");
+
+    addChild(rootNode);
+
+>>>>>>> master
 
     return true;
 }
