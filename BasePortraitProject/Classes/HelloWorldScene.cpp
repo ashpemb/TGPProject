@@ -45,6 +45,7 @@ bool HelloWorld::init()
 	touchListener->onTouchMoved = CC_CALLBACK_2(HelloWorld::onTouchMoved, this);
 	touchListener->onTouchCancelled = CC_CALLBACK_2(HelloWorld::onTouchCancelled, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, rootNode);
+	touching = false;
 
 	this->scheduleUpdate();
 
@@ -67,11 +68,12 @@ void HelloWorld::update(float delta)
 		float playerHalfWidth = player->getBoundingBox().size.width / 2;
 		player->setPositionX(max(playerHalfWidth, min(winSize.width - playerHalfWidth, newPos)));
 	}
-	CCLOG("player pos %f, %f", player->getPositionX(), player->getPositionY());
+	//CCLOG("player pos %f, %f", player->getPositionX(), player->getPositionY());
 }
 
 bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* touchEvent)
 {
+	CCLOG("TouchBegan");
 	touchPos = touch->getLocation();
 	touching = true;
 	return true;
@@ -79,16 +81,19 @@ bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* touchEvent)
 
 void HelloWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* touchEvent)
 {
+	CCLOG("TouchEnded");
 	touching = false;
 }
 
 void HelloWorld::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* touchEvent)
 {
+	CCLOG("TouchMoved");
 	touchPos = touch->getLocation();
 	touching = true;
 }
 
 void HelloWorld::onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* touchEvent)
 {
+	CCLOG("TouchCancelled");
 	touching = false;
 }
