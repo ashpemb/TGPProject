@@ -28,15 +28,15 @@
             <FileData Type="Normal" Path="planet_17.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Start" ActionTag="680661172" Tag="3" IconVisible="False" LeftMargin="302.4244" RightMargin="291.5756" TopMargin="470.8551" BottomMargin="453.1449" TouchEnable="True" FontSize="14" ButtonText="Start" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Start" ActionTag="680661172" Tag="3" IconVisible="False" LeftMargin="302.4244" RightMargin="291.5756" TopMargin="470.8551" BottomMargin="453.1449" TouchEnable="True" FontSize="20" ButtonText="Start" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="46.0000" Y="36.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="325.4244" Y="471.1449" />
             <Scale ScaleX="4.5358" ScaleY="2.7312" />
-            <CColor A="255" R="255" G="255" B="255" />
+            <CColor A="255" R="191" G="191" B="191" />
             <PrePosition X="0.5085" Y="0.4908" />
             <PreSize X="0.0000" Y="0.0000" />
-            <TextColor A="255" R="65" G="65" B="70" />
+            <TextColor A="255" R="26" G="26" B="26" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
             <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
             <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
