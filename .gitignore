@@ -1,2 +1,15 @@
+#Build
+Debug.win32
+
+#Logs
+*.log
+*.tlog
+
+#Visual Studio
+*.suo
 *.sdf
-*.sdf
+*.opensdf
+
+#Unknown
+*.udf
+
