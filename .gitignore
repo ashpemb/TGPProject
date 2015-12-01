@@ -1,6 +1,11 @@
+#Build
+Debug.win32
+
+#Logs
 *.log
 *.tlog
 
+#Unknown
 *.suo
 *.sdf
 *.udf
