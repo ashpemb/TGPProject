@@ -1,15 +1,15 @@
-<<<<<<< HEAD
-BasePortraitProject/proj.win32/Debug.win32/BasePortraitProject.log
-BasePortraitProject/proj.win32/Debug.win32/BasePortraitProject.Build.CppClean.log
-BasePortraitProject/proj.win32/BasePortraitProject.v12.suo
-BasePortraitProject/proj.win32/BasePortraitProject.sdf
-BasePortraitProject/proj.win32/Debug.win32/BasePortraitProject.log
-BasePortraitProject/proj.win32/Debug.win32/BasePortraitProject.Build.CppClean.log
-BasePortraitProject/proj.win32/Debug.win32/BasePortraitProject.Build.CppClean.log
-BasePortraitProject/proj.win32/BasePortraitProject.v12.suo
-BasePortraitProject/proj.win32/BasePortraitProject.sdf
-BasePortraitProject/BasePortraitProject.udf
-=======
+#Build
+Debug.win32
+
+#Logs
+*.log
+*.tlog
+
+#Visual Studio
+*.suo
 *.sdf
-*.sdf
->>>>>>> master
+*.opensdf
+
+#Unknown
+*.udf
+
