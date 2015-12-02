@@ -2,6 +2,8 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include <algorithm>
+#include "SimpleAudioEngine.h"
+
 using namespace std;
 
 USING_NS_CC;
@@ -47,6 +49,10 @@ bool HelloWorld::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, rootNode);
 	touching = false;
 
+	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	audio->getInstance()->preloadBackgroundMusic("level1music.mp3");
+	audio->getInstance()->playBackgroundMusic("level1music.mp3", true);
+
 	this->scheduleUpdate();
 
     return true;
@@ -55,6 +61,8 @@ bool HelloWorld::init()
 void HelloWorld::update(float delta)
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
+	//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	
 	if (touching)
 	{
 		float mappedTouchX = (touchPos.x / winSize.width) * 2 - 1;//[-1, 1]
