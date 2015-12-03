@@ -47,7 +47,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	auto sceneLevel1 = Level1::createScene();
 
     // run
-    director->runWithScene(scene);
+    director->runWithScene(sceneLevel1);
 
     return true;
 }
