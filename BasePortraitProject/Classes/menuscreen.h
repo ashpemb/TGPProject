@@ -1,7 +1,7 @@
 #ifndef __MENU_SCENE_H__
 #define __MENU_SCENE_H__
 
-#include "HelloWorldScene.h"
+#include "Level1.h"
 
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"

@@ -25,6 +25,10 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\menuscreen.cpp">
+    <ClCompile Include="Bullet.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Player.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -42,6 +46,10 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\menuscreen.h">
+    <ClInclude Include="Bullet.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Player.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

@@ -52,8 +52,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	auto sceneMenu = MenuScreen::createScene();
 
     // run
-    director->runWithScene(sceneMenu);
 
+    director->runWithScene(sceneMenu);
+    
     return true;
 }
 
