@@ -45,7 +45,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     FileUtils::getInstance()->addSearchPath("res");
 	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	audio->getInstance()->preloadBackgroundMusic("menumusic.mp3");
 	audio->getInstance()->preloadBackgroundMusic("level1music.mp3");
+
     // create a scene. it's an autorelease object
 	auto sceneMenu = MenuScreen::createScene();
 

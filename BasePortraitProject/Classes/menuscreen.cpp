@@ -1,4 +1,5 @@
 #include "menuscreen.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -54,6 +55,10 @@ bool MenuScreen::init()
 	_btnStart = static_cast<ui::Button*>(rootNode->getChildByName("Start"));
 	_btnStart->addTouchEventListener(CC_CALLBACK_2(MenuScreen::StartButtonPressed, this));
 	_btnStart->setPosition(Vec2(winSize.width*0.5f, winSize.height*0.43f));
+
+	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	audio->getInstance()->preloadBackgroundMusic("menumusic.mp3");
+	audio->getInstance()->playBackgroundMusic("menumusic.mp3", true);
 
 	return true;
 }
