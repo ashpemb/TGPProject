@@ -31,6 +31,7 @@
         <Image Name="planet_17.png" />
         <Project Name="Player.csd" Type="Scene" />
         <Image Name="player.png" />
+        <File Name="level1music.ogg" />
         <Project Name="Bullets.csd" Type="Node" />
         <Image Name="bullet.png" />
       </RootFolder>

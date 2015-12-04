@@ -1,6 +1,7 @@
 #include "Level1.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "SimpleAudioEngine.h"
 USING_NS_CC;
 using namespace cocostudio::timeline;
 #include <algorithm>
@@ -44,6 +45,10 @@ bool Level1::init()
 	touchListener->onTouchCancelled = CC_CALLBACK_2(Level1::onTouchCancelled, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, rootNode);
 	touching = false;
+
+	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	audio->getInstance()->preloadBackgroundMusic("level1music.mp3");
+	audio->getInstance()->playBackgroundMusic("level1music.mp3", true);
 
 	scheduleUpdate();
 

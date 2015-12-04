@@ -1,6 +1,9 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
 #include "Level1.h"
+#include "menuscreen.h"
+#include "SimpleAudioEngine.h"
+
 
 USING_NS_CC;
 
@@ -41,14 +44,17 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / 60);
 
     FileUtils::getInstance()->addSearchPath("res");
+	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	audio->getInstance()->preloadBackgroundMusic("menumusic.mp3");
+	audio->getInstance()->preloadBackgroundMusic("level1music.mp3");
 
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
-	auto sceneLevel1 = Level1::createScene();
+	auto sceneMenu = MenuScreen::createScene();
 
     // run
-    director->runWithScene(sceneLevel1);
 
+    director->runWithScene(sceneMenu);
+    
     return true;
 }
 
@@ -57,7 +63,7 @@ void AppDelegate::applicationDidEnterBackground() {
     Director::getInstance()->stopAnimation();
 
     // if you use SimpleAudioEngine, it must be pause
-    // SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
 }
 
 // this function will be called when the app is active again
@@ -65,5 +71,5 @@ void AppDelegate::applicationWillEnterForeground() {
     Director::getInstance()->startAnimation();
 
     // if you use SimpleAudioEngine, it must resume here
-    // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+    CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }

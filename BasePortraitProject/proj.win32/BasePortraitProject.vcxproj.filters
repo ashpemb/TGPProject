@@ -24,6 +24,7 @@
     <ClCompile Include="..\Classes\Level1.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\menuscreen.cpp">
     <ClCompile Include="Bullet.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -44,6 +45,7 @@
     <ClInclude Include="..\Classes\Level1.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\menuscreen.h">
     <ClInclude Include="Bullet.h">
       <Filter>src</Filter>
     </ClInclude>
