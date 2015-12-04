@@ -33,7 +33,8 @@ bool Level1::init()
 	auto rootNode = CSLoader::createNode("Level_1.csb");
 	addChild(rootNode);
 
-	player = CSLoader::createNode("Player.csb")->getChildByName<Sprite*>("playerShip");
+	player = Player::create();
+	player->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, 40));
 	rootNode->addChild(player);
 
 	auto touchListener = EventListenerTouchOneByOne::create();
@@ -51,21 +52,7 @@ bool Level1::init()
 
 void Level1::update(float delta)
 {
-	auto winSize = Director::getInstance()->getVisibleSize();
-	if (touching)
-	{
-		float mappedTouchX = (touchPos.x / winSize.width) * 2 - 1;//[-1, 1]
-		float moveDirection = 0;
-		float deadZone = 0.01f;
-		if (abs(mappedTouchX) > deadZone)
-		{
-			moveDirection = mappedTouchX > 0 ? 1 : -1;
-		}
-		float newPos = player->getPositionX() + moveDirection * playerSpeed * delta;
-		float playerHalfWidth = player->getBoundingBox().size.width / 2;
-		player->setPositionX(max(playerHalfWidth, min(winSize.width - playerHalfWidth, newPos)));
-	}
-	addChild(Bullet::create(player->getPosition() + Vec2(0, 50), Vec2(0, 1)));
+	player->setTouchPos(touchPos, touching);
 	//CCLOG("player pos %f, %f", player->getPositionX(), player->getPositionY());
 }
 

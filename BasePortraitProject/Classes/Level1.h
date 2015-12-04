@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 USING_NS_CC;
+#include "Player.h"
 #include "Bullet.h"
 
 class Level1 : public cocos2d::Layer
@@ -23,8 +24,7 @@ public:
 	// implement the "static create()" method manually
 	CREATE_FUNC(Level1);
 
-	Sprite* player;
-	float playerSpeed = 120.0f;
+	Player* player;
 
 	Vec2 touchPos;
 	bool touching;
