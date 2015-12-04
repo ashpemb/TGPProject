@@ -41,6 +41,13 @@ bool HelloWorld::init()
 
 	player = rootNode->getChildByName<Sprite*>("playerShip");
 
+	auto bulletcsb = CSLoader::createNode("Bullets.csb");
+	rootNode->addChild(bulletcsb);
+	bullet = bulletcsb->getChildByName<Sprite*>("bullet_1");
+	bullet->setPosition(Vec2(500, 500));
+	bullet = Sprite::createWithTexture(bullet->getTexture());
+	rootNode->addChild(bullet);
+
 	auto touchListener = EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
 	touchListener->onTouchEnded = CC_CALLBACK_2(HelloWorld::onTouchEnded, this);
@@ -76,6 +83,7 @@ void HelloWorld::update(float delta)
 		float playerHalfWidth = player->getBoundingBox().size.width / 2;
 		player->setPositionX(max(playerHalfWidth, min(winSize.width - playerHalfWidth, newPos)));
 	}
+	bullet->setPosition(player->getPosition() + Vec2(0, 100));
 	//CCLOG("player pos %f, %f", player->getPositionX(), player->getPositionY());
 }
 

@@ -28,6 +28,8 @@ public:
 
 	Vec2 touchPos;
 	bool touching;
+
+	Sprite* bullet;
 };
 
 #endif // __HELLOWORLD_SCENE_H__
