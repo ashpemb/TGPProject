@@ -76,7 +76,7 @@ void MenuScreen::StartButtonPressed(Ref *pSender, cocos2d::ui::Widget::TouchEven
 
 void MenuScreen::StartGame()
 {
-	auto gameScreen = new HelloWorld();
+	auto gameScreen = new Level1();
 	CCDirector::getInstance()->replaceScene(gameScreen->createScene());
 	auto winSize = Director::getInstance()->getVisibleSize();
 }
