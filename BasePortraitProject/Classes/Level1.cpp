@@ -35,7 +35,7 @@ bool Level1::init()
 	addChild(rootNode);
 
 	player = Player::create();
-	player->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, 40));
+	player->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, 80));
 	rootNode->addChild(player);
 
 	auto touchListener = EventListenerTouchOneByOne::create();

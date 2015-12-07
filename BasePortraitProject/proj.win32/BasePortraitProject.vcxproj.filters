@@ -7,6 +7,7 @@
     <ClCompile Include="..\Classes\Player.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\Classes\Enemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
@@ -15,6 +16,7 @@
     <ClInclude Include="..\Classes\Player.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="..\Classes\Enemy.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc" />

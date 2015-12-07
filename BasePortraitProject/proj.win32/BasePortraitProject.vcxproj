@@ -147,6 +147,7 @@ xcopy /Y /Q "$(COCOS_FRAMEWORKS)\cocos2d-x-3.8\prebuilt\win32\*.*" "$(OutDir)"
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\Enemy.cpp" />
     <ClCompile Include="..\Classes\Level1.cpp" />
     <ClCompile Include="..\Classes\menuscreen.cpp" />
     <ClCompile Include="..\Classes\Player.cpp" />
@@ -155,6 +156,7 @@ xcopy /Y /Q "$(COCOS_FRAMEWORKS)\cocos2d-x-3.8\prebuilt\win32\*.*" "$(OutDir)"
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\Enemy.h" />
     <ClInclude Include="..\Classes\Level1.h" />
     <ClInclude Include="..\Classes\menuscreen.h" />
     <ClInclude Include="..\Classes\Player.h" />
