@@ -12,5 +12,7 @@ public:
 	virtual bool init() override;
 	static Enemy* create();
 	void update(float delta);
+
+	float speed = 100;
 };
 

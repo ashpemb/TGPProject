@@ -41,5 +41,5 @@ bool Enemy::init()
 
 void Enemy::update(float delta)
 {
-	
+	setPositionY(getPositionY() - speed * delta);
 }
