@@ -38,6 +38,9 @@ bool Level1::init()
 	player->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, 80));
 	rootNode->addChild(player);
 
+	spawner = Spawner::create();
+	rootNode->addChild(spawner);
+
 	auto touchListener = EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan = CC_CALLBACK_2(Level1::onTouchBegan, this);
 	touchListener->onTouchEnded = CC_CALLBACK_2(Level1::onTouchEnded, this);
