@@ -31,7 +31,7 @@ bool Enemy::init()
 	}
 
 	Sprite* sprite = Sprite::create("player.png");
-	sprite->setRotation(CC_DEGREES_TO_RADIANS(180));
+	sprite->setRotation(180);
 	addChild(sprite);
 
 	this->scheduleUpdate();
