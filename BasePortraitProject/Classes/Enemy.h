@@ -12,7 +12,10 @@ public:
 	virtual bool init() override;
 	static Enemy* create();
 	void update(float delta);
+	void die();
 
 	float speed = 100;
+
+	static const int categoryBitmask = 0x1;
 };
 

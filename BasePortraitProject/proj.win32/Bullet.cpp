@@ -34,6 +34,8 @@ bool Bullet::init()
 	}
 
 	Sprite* sprite = Sprite::create("bullet.png");
+	sprite->setPhysicsBody(PhysicsBody::createBox(sprite->getBoundingBox().size));
+	sprite->getPhysicsBody()->setContactTestBitmask(0x1);
 	addChild(sprite);
 
 	this->scheduleUpdate();

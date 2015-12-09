@@ -30,6 +30,7 @@ bool Player::init()
 	}
 
 	Sprite* sprite = Sprite::create("player.png");
+	sprite->setPhysicsBody(PhysicsBody::createBox(sprite->getBoundingBox().size));
 	addChild(sprite);
 
 	this->scheduleUpdate();

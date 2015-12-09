@@ -18,6 +18,8 @@ public:
 	virtual bool init();
 	virtual void update(float delta);
 
+	bool onContactBegin(PhysicsContact& contact);
+
 	virtual bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* touchEvent);
 	virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* touchEvent);
 	virtual void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* touchEvent);
