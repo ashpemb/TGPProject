@@ -47,7 +47,7 @@ bool Level1::init()
 	touching = false;
 
 	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-	audio->getInstance()->preloadBackgroundMusic("level1music.mp3");
+	//audio->getInstance()->preloadBackgroundMusic("level1music.mp3");
 	audio->getInstance()->playBackgroundMusic("level1music.mp3", true);
 
 	scheduleUpdate();

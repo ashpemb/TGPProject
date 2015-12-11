@@ -58,6 +58,8 @@ bool MenuScreen::init()
 
 	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 	audio->getInstance()->preloadBackgroundMusic("menumusic.mp3");
+	audio->getInstance()->preloadBackgroundMusic("level1music.mp3");
+	audio->getInstance()->preloadBackgroundMusic("GameOvermusic.mp3");
 	audio->getInstance()->playBackgroundMusic("menumusic.mp3", true);
 
 	return true;
