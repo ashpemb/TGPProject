@@ -2,6 +2,7 @@
 
 Player::Player()
 {
+	
 }
 
 
@@ -59,7 +60,8 @@ void Player::update(float delta)
 
 void Player::shoot(float something)
 {
-	getParent()->addChild(Bullet::create(getPosition() + Vec2(0, 50), Vec2(0, 1)));
+	Bullet* bullet = Bullet::create(getPosition() + Vec2(0, 50), Vec2(0, 1));
+	if (bullet) getParent()->addChild(bullet);
 }
 
 void Player::setTouchPos(Vec2 pos, bool touching)

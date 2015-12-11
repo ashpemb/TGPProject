@@ -14,5 +14,6 @@ public:
 	void update(float delta);
 
 	Vec2 direction;
+	float speed = 400;
 };
 
