@@ -34,6 +34,8 @@ bool Bullet::init()
 	}
 
 	Sprite* sprite = Sprite::create("bullet.png");
+	sprite->setPhysicsBody(PhysicsBody::createBox(sprite->getBoundingBox().size));
+	sprite->getPhysicsBody()->setContactTestBitmask(0x1);
 	addChild(sprite);
 
 	this->scheduleUpdate();
@@ -44,4 +46,8 @@ bool Bullet::init()
 void Bullet::update(float delta)
 {
 	setPosition(getPosition() + direction * speed * delta);
+	if (getBoundingBox().getMaxY() < 0 || getBoundingBox().getMinY() > Director::getInstance()->getVisibleSize().height)
+	{
+		getParent()->removeChild(this);
+	}
 }

@@ -30,9 +30,11 @@ bool Player::init()
 	}
 
 	Sprite* sprite = Sprite::create("player.png");
+	sprite->setPhysicsBody(PhysicsBody::createBox(sprite->getBoundingBox().size));
 	addChild(sprite);
 
 	this->scheduleUpdate();
+	this->schedule(schedule_selector(Player::shoot), 1.0f / fireRate);
 
 	return true;
 }
@@ -53,7 +55,10 @@ void Player::update(float delta)
 		float playerHalfWidth = getBoundingBox().size.width / 2;
 		setPositionX(max(playerHalfWidth, min(winSize.width - playerHalfWidth, newPos)));
 	}
+}
 
+void Player::shoot(float something)
+{
 	getParent()->addChild(Bullet::create(getPosition() + Vec2(0, 50), Vec2(0, 1)));
 }
 

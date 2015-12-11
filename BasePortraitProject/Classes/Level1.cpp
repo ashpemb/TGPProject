@@ -10,7 +10,8 @@ using namespace std;
 Scene* Level1::createScene()
 {
 	// 'scene' is an autorelease object
-	auto sceneLevel1 = Scene::create();
+	auto sceneLevel1 = Scene::createWithPhysics();
+	sceneLevel1->getPhysicsWorld()->setGravity(Vec2(0, 0));
 
 	// 'layer' is an autorelease object
 	auto layer = Level1::create();
@@ -35,8 +36,11 @@ bool Level1::init()
 	addChild(rootNode);
 
 	player = Player::create();
-	player->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, 40));
+	player->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, 80));
 	rootNode->addChild(player);
+
+	spawner = Spawner::create();
+	rootNode->addChild(spawner);
 
 	auto touchListener = EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan = CC_CALLBACK_2(Level1::onTouchBegan, this);
@@ -45,6 +49,10 @@ bool Level1::init()
 	touchListener->onTouchCancelled = CC_CALLBACK_2(Level1::onTouchCancelled, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, rootNode);
 	touching = false;
+
+	auto collisionListener = EventListenerPhysicsContact::create();
+	collisionListener->onContactBegin = CC_CALLBACK_1(Level1::onContactBegin, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(collisionListener, rootNode);
 
 	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 	audio->getInstance()->preloadBackgroundMusic("level1music.mp3");
@@ -59,6 +67,20 @@ void Level1::update(float delta)
 {
 	player->setTouchPos(touchPos, touching);
 	//CCLOG("player pos %f, %f", player->getPositionX(), player->getPositionY());
+}
+
+bool Level1::onContactBegin(PhysicsContact& contact)
+{
+	for (auto shape : { contact.getShapeA(), contact.getShapeB() })
+	{
+		if (shape->getBody()->getCategoryBitmask() == Enemy::categoryBitmask)
+		{
+			Enemy* enemy = dynamic_cast<Enemy*>(shape->getBody()->getNode()->getParent());
+			enemy->die();
+		}
+	}
+	
+	return false;//dont solve collision
 }
 
 bool Level1::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* touchEvent)

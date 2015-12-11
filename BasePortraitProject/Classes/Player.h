@@ -16,10 +16,11 @@ public:
 	virtual bool init() override;
 	static Player* create();
 	void update(float delta);
+	void shoot(float);
 	void setTouchPos(Vec2 pos, bool touching);
 
 	float speed = 120;
-	float fireRate = 5;
+	float fireRate = 10;
 	Vec2 touchPos;
 	bool touching;
 };
