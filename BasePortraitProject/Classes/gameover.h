@@ -33,7 +33,7 @@ public:
 	CREATE_FUNC(GameOver);
 
 private:
-
+// buttons
 	cocos2d::ui::Button*    _btnRestart;
 	cocos2d::ui::Button*	_btnExit;
 

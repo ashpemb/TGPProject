@@ -58,8 +58,8 @@ bool GameOver::init()
 	_btnExit->setPosition(Vec2(winSize.width*0.5f, winSize.height*0.40f));
 
 	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-	//audio->getInstance()->preloadBackgroundMusic("GameOvermusic.mp3");
-	audio->getInstance()->playBackgroundMusic("GameOvermusic.mp3", true);
+	//audio->getInstance()->preloadBackgroundMusic("gameOvermusic.mp3");
+	audio->getInstance()->playBackgroundMusic("gameOvermusic.mp3", true);
 
 	return true;
 }
