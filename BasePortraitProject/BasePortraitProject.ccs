@@ -34,7 +34,6 @@
         <File Name="level1music.ogg" />
         <Project Name="Bullets.csd" Type="Node" />
         <Image Name="bullet.png" />
-        <Project Name="GameOver.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>

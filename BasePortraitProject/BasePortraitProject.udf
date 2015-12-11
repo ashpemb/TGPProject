@@ -32,9 +32,8 @@
           <FilePathData Path="Level_1.csd" />
           <FilePathData Path="Menu.csd" />
           <FilePathData Path="Player.csd" />
-          <FilePathData Path="GameOver.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="GameOver.csd" />
+        <ActiveDocument Path="Bullets.csd" />
       </Value>
     </Item>
   </Properties>
