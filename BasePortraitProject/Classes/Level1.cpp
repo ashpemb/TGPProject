@@ -1,4 +1,6 @@
 #include "Level1.h"
+#include "Pause.h"
+#include "AppDelegate.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "SimpleAudioEngine.h"
@@ -50,6 +52,9 @@ bool Level1::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, rootNode);
 	touching = false;
 
+	_btnPause = static_cast<ui::Button*>(rootNode->getChildByName("Pause"));
+	_btnPause->addTouchEventListener(CC_CALLBACK_2(Level1::PauseButtonPressed, this));
+
 	auto collisionListener = EventListenerPhysicsContact::create();
 	collisionListener->onContactBegin = CC_CALLBACK_1(Level1::onContactBegin, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(collisionListener, rootNode);
@@ -83,6 +88,17 @@ bool Level1::onContactBegin(PhysicsContact& contact)
 	return false;//dont solve collision
 }
 
+void Level1::PauseButtonPressed(Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
+{
+	CCLOG("In touch! %d", type);
+
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		CCLOG("touch ended.");
+		this->OpenPauseMenu();
+	}
+}
+
 bool Level1::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* touchEvent)
 {
 	CCLOG("TouchBegan");
@@ -108,4 +124,10 @@ void Level1::onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* touchEvent)
 {
 	CCLOG("TouchCancelled");
 	touching = false;
+}
+
+void Level1::OpenPauseMenu()
+{
+	auto pauseScene = PauseScene::createScene();
+	Director::getInstance()->pushScene(pauseScene);
 }

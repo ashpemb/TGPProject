@@ -35,6 +35,7 @@
         <Project Name="Bullets.csd" Type="Node" />
         <Image Name="bullet.png" />
         <Project Name="GameOver.csd" Type="Scene" />
+        <Project Name="PauseScene.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>

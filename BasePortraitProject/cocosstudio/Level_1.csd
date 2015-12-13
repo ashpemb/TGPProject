@@ -39,6 +39,21 @@
             <FileData Type="Normal" Path="planet_17.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
+          <AbstractNodeData Name="Pause" ActionTag="386194230" Tag="5" IconVisible="False" LeftMargin="51.8166" RightMargin="542.1834" TopMargin="12.6655" BottomMargin="911.3345" TouchEnable="True" FontSize="16" ButtonText="Menu" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="46.0000" Y="36.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="74.8166" Y="929.3345" />
+            <Scale ScaleX="2.6429" ScaleY="1.3047" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.1169" Y="0.9681" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <TextColor A="255" R="26" G="26" B="26" />
+            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>

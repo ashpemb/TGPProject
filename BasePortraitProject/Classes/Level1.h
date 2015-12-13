@@ -2,6 +2,13 @@
 #define __LEVEL1_SCENE_H__
 
 #include "cocos2d.h"
+
+#include "ui/CocosGUI.h"
+#include "cocostudio/CocoStudio.h"
+
+#include "stdio.h"
+
+#include <iomanip>
 USING_NS_CC;
 #include "Player.h"
 #include "Bullet.h"
@@ -25,6 +32,10 @@ public:
 	virtual void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* touchEvent);
 	virtual void onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* touchEvent);
 
+	void PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+
+	void OpenPauseMenu();
+
 	// implement the "static create()" method manually
 	CREATE_FUNC(Level1);
 
@@ -33,6 +44,10 @@ public:
 
 	Vec2 touchPos;
 	bool touching;
+
+
+private:
+	cocos2d::ui::Button*    _btnPause;
 };
 
 #endif // __LEVEL1_SCENE_H__
