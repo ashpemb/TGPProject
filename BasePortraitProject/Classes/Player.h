@@ -20,8 +20,8 @@ public:
 	void shoot(float);
 	void setTouchPos(Vec2 pos, bool touching);
 
-	float speed = 120;
-	float fireRate = 10;
+	float speed = 150;
+	float fireRate = 5;
 	Vec2 touchPos;
 	bool touching;
 

@@ -17,6 +17,7 @@ public:
 	void die();
 
 	float speed = 100;
+	float health = 100.0f;
 
 	static const int categoryBitmask = 0x1;
 };
