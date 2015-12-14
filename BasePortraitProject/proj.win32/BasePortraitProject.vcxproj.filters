@@ -10,6 +10,7 @@
     <ClCompile Include="..\Classes\Spawner.cpp" />
     <ClCompile Include="..\Classes\Projectile.cpp" />
     <ClCompile Include="..\Classes\Bullet.cpp" />
+    <ClCompile Include="..\Classes\gameover.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
@@ -21,6 +22,7 @@
     <ClInclude Include="..\Classes\Spawner.h" />
     <ClInclude Include="..\Classes\Projectile.h" />
     <ClInclude Include="..\Classes\Bullet.h" />
+    <ClInclude Include="..\Classes\gameover.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc" />

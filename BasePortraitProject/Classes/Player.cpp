@@ -32,6 +32,9 @@ bool Player::init()
 
 	Sprite* sprite = Sprite::create("player.png");
 	sprite->setPhysicsBody(PhysicsBody::createBox(sprite->getBoundingBox().size));
+	sprite->getPhysicsBody()->setContactTestBitmask(Enemy::categoryBitmask);
+	sprite->getPhysicsBody()->setCategoryBitmask(categoryBitmask);
+	sprite->getPhysicsBody()->setCollisionBitmask(Enemy::categoryBitmask);
 	addChild(sprite);
 
 	this->scheduleUpdate();

@@ -6,6 +6,7 @@ USING_NS_CC;
 #include <algorithm>
 using namespace std;
 #include "Bullet.h"
+#include "Enemy.h"
 
 class Player : public Node
 {
@@ -23,5 +24,7 @@ public:
 	float fireRate = 10;
 	Vec2 touchPos;
 	bool touching;
+
+	static const int categoryBitmask = 0x2;
 };
 

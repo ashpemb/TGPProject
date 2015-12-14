@@ -7,6 +7,7 @@ USING_NS_CC;
 #include "Bullet.h"
 #include "Enemy.h"
 #include "Spawner.h"
+#include "gameover.h"
 
 class Level1 : public cocos2d::Layer
 {

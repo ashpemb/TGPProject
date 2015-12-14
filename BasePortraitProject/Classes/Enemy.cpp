@@ -33,8 +33,9 @@ bool Enemy::init()
 	Sprite* sprite = Sprite::create("player.png");
 	sprite->setRotation(180);
 	sprite->setPhysicsBody(PhysicsBody::createBox(sprite->getBoundingBox().size));
-	sprite->getPhysicsBody()->setContactTestBitmask(0x1);
+	sprite->getPhysicsBody()->setContactTestBitmask(Bullet::categoryBitmask | Player::categoryBitmask);
 	sprite->getPhysicsBody()->setCategoryBitmask(categoryBitmask);
+	sprite->getPhysicsBody()->setCollisionBitmask(Bullet::categoryBitmask | Player::categoryBitmask);
 	addChild(sprite);
 
 	this->scheduleUpdate();

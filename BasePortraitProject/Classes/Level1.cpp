@@ -71,12 +71,27 @@ void Level1::update(float delta)
 
 bool Level1::onContactBegin(PhysicsContact& contact)
 {
-	for (auto shape : { contact.getShapeA(), contact.getShapeB() })
+	for (auto collision : vector<pair<PhysicsShape*, PhysicsShape*>>{
+		{contact.getShapeA(), contact.getShapeB()},
+		{contact.getShapeB(), contact.getShapeA()} })
 	{
-		if (shape->getBody()->getCategoryBitmask() == Enemy::categoryBitmask)
+		PhysicsBody* body = collision.first->getBody();
+		PhysicsBody* otherBody = collision.second->getBody();
+		if (body->getCategoryBitmask() == Enemy::categoryBitmask
+			&& otherBody->getCategoryBitmask() == Bullet::categoryBitmask)
 		{
-			Enemy* enemy = dynamic_cast<Enemy*>(shape->getBody()->getNode()->getParent());
+			Enemy* enemy = dynamic_cast<Enemy*>(body->getNode()->getParent());
 			enemy->die();
+		}
+		else if (body->getCategoryBitmask() == Bullet::categoryBitmask
+			&& otherBody->getCategoryBitmask() == Enemy::categoryBitmask)
+		{
+			body->getNode()->getParent()->getParent()->removeChild(body->getNode()->getParent());
+		}
+		else if (body->getCategoryBitmask() == Player::categoryBitmask
+			&& otherBody->getCategoryBitmask() == Enemy::categoryBitmask)
+		{
+			CCDirector::getInstance()->replaceScene(GameOver::createScene());
 		}
 	}
 	

@@ -2,6 +2,8 @@
 
 #include "cocos2d.h"
 USING_NS_CC;
+#include "Bullet.h"
+#include "Player.h"
 
 class Enemy : public Node
 {
