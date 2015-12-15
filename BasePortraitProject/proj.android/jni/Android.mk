@@ -18,7 +18,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/Level1.cpp \
 				   ../../Classes/menuscreen.cpp \
 				   ../../Classes/Player.cpp \
-				   ../../Classes/Spawner.cpp
+				   ../../Classes/Spawner.cpp \
+				   ../../Classes/Pause.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 
