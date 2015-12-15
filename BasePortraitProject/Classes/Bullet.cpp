@@ -35,7 +35,9 @@ bool Bullet::init()
 
 	Sprite* sprite = Sprite::create("bullet.png");
 	sprite->setPhysicsBody(PhysicsBody::createBox(sprite->getBoundingBox().size));
-	sprite->getPhysicsBody()->setContactTestBitmask(0x1);
+	sprite->getPhysicsBody()->setContactTestBitmask(Enemy::categoryBitmask);
+	sprite->getPhysicsBody()->setCategoryBitmask(categoryBitmask);
+	sprite->getPhysicsBody()->setCollisionBitmask(Enemy::categoryBitmask);
 	addChild(sprite);
 
 	this->scheduleUpdate();

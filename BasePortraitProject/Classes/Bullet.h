@@ -2,6 +2,7 @@
 
 #include "cocos2d.h"
 USING_NS_CC;
+#include "Enemy.h"
 
 class Bullet : public Node
 {
@@ -15,5 +16,7 @@ public:
 
 	Vec2 direction;
 	float speed = 400;
+
+	static const int categoryBitmask = 0x4;
 };
 
