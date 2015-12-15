@@ -38,6 +38,7 @@ bool Level1::init()
 	addChild(rootNode);
 
 	player = Player::create();
+	player->setName("Player");
 	player->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, 80));
 	rootNode->addChild(player);
 
@@ -83,7 +84,7 @@ bool Level1::onContactBegin(PhysicsContact& contact)
 		PhysicsBody* body = collision.first->getBody();
 		PhysicsBody* otherBody = collision.second->getBody();
 		if (body->getCategoryBitmask() == Enemy::categoryBitmask
-			&& otherBody->getCategoryBitmask() == Bullet::categoryBitmask)
+			&& otherBody->getCategoryBitmask() == Bullet::categoryBitmaskPlayerBullet)
 		{
 			Enemy* enemy = dynamic_cast<Enemy*>(body->getNode()->getParent());
 			enemy->health -= 15.0f;
@@ -92,13 +93,18 @@ bool Level1::onContactBegin(PhysicsContact& contact)
 				enemy->die();
 			}
 		}
-		else if (body->getCategoryBitmask() == Bullet::categoryBitmask
+		else if (body->getCategoryBitmask() == Bullet::categoryBitmaskPlayerBullet
 			&& otherBody->getCategoryBitmask() == Enemy::categoryBitmask)
 		{
 			body->getNode()->getParent()->getParent()->removeChild(body->getNode()->getParent());
 		}
 		else if (body->getCategoryBitmask() == Player::categoryBitmask
 			&& otherBody->getCategoryBitmask() == Enemy::categoryBitmask)
+		{
+			CCDirector::getInstance()->replaceScene(GameOver::createScene());
+		}
+		else if (body->getCategoryBitmask() == Player::categoryBitmask
+			&& otherBody->getCategoryBitmask() == Bullet::categoryBitmaskEnemyBullet)
 		{
 			CCDirector::getInstance()->replaceScene(GameOver::createScene());
 		}

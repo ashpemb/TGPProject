@@ -12,12 +12,14 @@ public:
 	~Enemy();
 
 	virtual bool init() override;
-	static Enemy* create();
+	static Enemy* create(Node* target);
 	void update(float delta);
+	void shoot();
 	void die();
 
 	float speed = 100;
 	float health = 100.0f;
+	Node* target;
 
 	static const int categoryBitmask = 0x1;
 };

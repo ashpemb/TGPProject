@@ -37,7 +37,7 @@ bool Spawner::init()
 
 void Spawner::spawn(float something)
 {
-	Enemy* enemy = Enemy::create();
+	Enemy* enemy = Enemy::create(getParent()->getChildByName("Player"));
 	auto winSize = Director::getInstance()->getVisibleSize();
 	enemy->setPosition(RandomHelper::random_real(0.0f, winSize.width), winSize.height);
 	getParent()->addChild(enemy);

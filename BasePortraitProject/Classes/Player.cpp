@@ -32,9 +32,9 @@ bool Player::init()
 
 	Sprite* sprite = Sprite::create("player.png");
 	sprite->setPhysicsBody(PhysicsBody::createBox(sprite->getBoundingBox().size));
-	sprite->getPhysicsBody()->setContactTestBitmask(Enemy::categoryBitmask);
+	sprite->getPhysicsBody()->setContactTestBitmask(Enemy::categoryBitmask | Bullet::categoryBitmaskEnemyBullet);
 	sprite->getPhysicsBody()->setCategoryBitmask(categoryBitmask);
-	sprite->getPhysicsBody()->setCollisionBitmask(Enemy::categoryBitmask);
+	sprite->getPhysicsBody()->setCollisionBitmask(Enemy::categoryBitmask | Bullet::categoryBitmaskEnemyBullet);
 	addChild(sprite);
 
 	this->scheduleUpdate();

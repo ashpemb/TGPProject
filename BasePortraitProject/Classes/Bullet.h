@@ -11,12 +11,14 @@ public:
 	~Bullet();
 
 	virtual bool init() override;
-	static Bullet* create(Vec2 position, Vec2 direction);
+	static Bullet* create(Vec2 position, Vec2 direction, bool friendly = true);
 	void update(float delta);
 
 	Vec2 direction;
 	float speed = 400;
+	bool friendly;
 
-	static const int categoryBitmask = 0x4;
+	static const int categoryBitmaskPlayerBullet = 0x4;
+	static const int categoryBitmaskEnemyBullet = 0x8;
 };
 

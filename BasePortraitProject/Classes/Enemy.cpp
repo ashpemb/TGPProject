@@ -10,7 +10,7 @@ Enemy::~Enemy()
 {
 }
 
-Enemy* Enemy::create()
+Enemy* Enemy::create(Node* target = nullptr)
 {
 	Enemy* enemy = new Enemy();
 	if (!enemy->init())
@@ -19,6 +19,8 @@ Enemy* Enemy::create()
 		return nullptr;
 	}
 	enemy->autorelease();
+
+	enemy->target = target;
 	
 	return enemy;
 }
@@ -33,12 +35,24 @@ bool Enemy::init()
 	Sprite* sprite = Sprite::create("player.png");
 	sprite->setRotation(180);
 	sprite->setPhysicsBody(PhysicsBody::createBox(sprite->getBoundingBox().size));
-	sprite->getPhysicsBody()->setContactTestBitmask(Bullet::categoryBitmask | Player::categoryBitmask);
+	sprite->getPhysicsBody()->setContactTestBitmask(Bullet::categoryBitmaskPlayerBullet | Player::categoryBitmask);
 	sprite->getPhysicsBody()->setCategoryBitmask(categoryBitmask);
-	sprite->getPhysicsBody()->setCollisionBitmask(Bullet::categoryBitmask | Player::categoryBitmask);
+	sprite->getPhysicsBody()->setCollisionBitmask(Bullet::categoryBitmaskPlayerBullet | Player::categoryBitmask);
 	addChild(sprite);
 
 	this->scheduleUpdate();
+	float interval = RandomHelper::random_real<float>(2, 10);
+	int bullets = (int)(pow(RandomHelper::random_real<float>(0, 1), 2) * 3);
+	if (bullets > 0)
+	{
+		Vector<FiniteTimeAction*> bulletActions;
+		for (int i = 0; i < bullets; i++)
+		{
+			bulletActions.pushBack(DelayTime::create(RandomHelper::random_real<float>(0.5f, 1.5f)));
+			bulletActions.pushBack(CallFunc::create(CC_CALLBACK_0(Enemy::shoot, this)));
+		}
+		runAction(Sequence::create(bulletActions));
+	}
 
 	return true;
 }
@@ -50,6 +64,20 @@ void Enemy::update(float delta)
 	{
 		getParent()->removeChild(this);
 	}
+}
+
+void Enemy::shoot()
+{
+	//if (getPositionY() <= Director::sharedDirector()->getVisibleSize().height) return;
+	Vec2 shootDir(0, -1);
+	if (target)
+	{
+		shootDir = (target->getPosition() - getPosition());
+		shootDir.normalize();
+	}
+	Bullet* bullet = Bullet::create(getPosition() + Vec2(0, -50), shootDir, false);
+	bullet->speed *= 0.5f;
+	getParent()->addChild(bullet);
 }
 
 void Enemy::die()

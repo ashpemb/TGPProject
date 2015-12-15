@@ -9,9 +9,10 @@ Bullet::~Bullet()
 {
 }
 
-Bullet* Bullet::create(Vec2 position, Vec2 direction)
+Bullet* Bullet::create(Vec2 position, Vec2 direction, bool friendly)
 {
 	Bullet* bullet = new Bullet();
+	bullet->friendly = friendly;
 	if (!bullet->init())
 	{
 		CC_SAFE_DELETE(bullet);
@@ -35,9 +36,18 @@ bool Bullet::init()
 
 	Sprite* sprite = Sprite::create("bullet.png");
 	sprite->setPhysicsBody(PhysicsBody::createBox(sprite->getBoundingBox().size));
-	sprite->getPhysicsBody()->setContactTestBitmask(Enemy::categoryBitmask);
-	sprite->getPhysicsBody()->setCategoryBitmask(categoryBitmask);
-	sprite->getPhysicsBody()->setCollisionBitmask(Enemy::categoryBitmask);
+	if (friendly)
+	{
+		sprite->getPhysicsBody()->setCategoryBitmask(categoryBitmaskPlayerBullet);
+		sprite->getPhysicsBody()->setContactTestBitmask(Enemy::categoryBitmask);
+		sprite->getPhysicsBody()->setCollisionBitmask(Enemy::categoryBitmask);
+	}
+	else
+	{
+		sprite->getPhysicsBody()->setCategoryBitmask(categoryBitmaskEnemyBullet);
+		sprite->getPhysicsBody()->setContactTestBitmask(Player::categoryBitmask);
+		sprite->getPhysicsBody()->setCollisionBitmask(Player::categoryBitmask);
+	}
 	addChild(sprite);
 
 	this->scheduleUpdate();
