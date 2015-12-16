@@ -87,7 +87,7 @@ bool Level1::onContactBegin(PhysicsContact& contact)
 			&& otherBody->getCategoryBitmask() == Bullet::categoryBitmaskPlayerBullet)
 		{
 			Enemy* enemy = dynamic_cast<Enemy*>(body->getNode()->getParent());
-			enemy->health -= 15.0f;
+			enemy->health -= 10.0f;
 			if (enemy->health <= 0)
 			{
 				enemy->die();

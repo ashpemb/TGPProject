@@ -32,8 +32,7 @@ bool Enemy::init()
 		return false;
 	}
 
-	Sprite* sprite = Sprite::create("player.png");
-	sprite->setRotation(180);
+	Sprite* sprite = Sprite::create("enemy_0.png");
 	sprite->setPhysicsBody(PhysicsBody::createBox(sprite->getBoundingBox().size));
 	sprite->getPhysicsBody()->setContactTestBitmask(Bullet::categoryBitmaskPlayerBullet | Player::categoryBitmask);
 	sprite->getPhysicsBody()->setCategoryBitmask(categoryBitmask);

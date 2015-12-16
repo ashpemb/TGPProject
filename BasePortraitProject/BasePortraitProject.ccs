@@ -36,6 +36,7 @@
         <Image Name="bullet.png" />
         <Project Name="GameOver.csd" Type="Scene" />
         <Project Name="PauseScene.csd" Type="Scene" />
+        <Image Name="enemy_0.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

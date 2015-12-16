@@ -18,7 +18,7 @@ public:
 	void die();
 
 	float speed = 100;
-	float health = 100.0f;
+	float health = 30.0f;
 	Node* target;
 
 	static const int categoryBitmask = 0x1;
