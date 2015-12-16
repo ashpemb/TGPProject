@@ -1,5 +1,6 @@
 #include "Level1.h"
 #include "Pause.h"
+#include "Score.h"
 #include "AppDelegate.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
@@ -38,7 +39,6 @@ bool Level1::init()
 	auto rootNode = CSLoader::createNode("Level_1.csb");
 	addChild(rootNode);
 
-	gameScore = new Score();
 
 	_score = (cocos2d::ui::Text*)rootNode->getChildByName("Score");
 
@@ -80,13 +80,13 @@ void Level1::update(float delta)
 	player->setTouchPos(touchPos, touching);
 	//CCLOG("player pos %f, %f", player->getPositionX(), player->getPositionY());
 
-	int displayScore = gameScore->getScore();
+	int displayScore = Score::sharedScore()->getScore();
 	_score->setString(StringUtils::format("%d", displayScore));
 }
 
 void Level1::updateScoreSecond(float something)
 {
-	gameScore->updateScore(newScore);
+	Score::sharedScore()->updateScore(newScore);
 }
 
 bool Level1::onContactBegin(PhysicsContact& contact)
@@ -105,7 +105,7 @@ bool Level1::onContactBegin(PhysicsContact& contact)
 			if (enemy->health <= 0)
 			{
 				enemy->die();
-				gameScore->updateScore(10);
+				Score::sharedScore()->updateScore(10);
 			}
 		}
 		else if (body->getCategoryBitmask() == Bullet::categoryBitmaskPlayerBullet

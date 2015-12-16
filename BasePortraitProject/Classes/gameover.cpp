@@ -49,6 +49,11 @@ bool GameOver::init()
 	//Add our touch listener to event listener list.
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
 
+	_score = (cocos2d::ui::Text*)rootNode->getChildByName("score");
+
+	int displayScore = Score::sharedScore()->getScore();
+	_score->setString(StringUtils::format("Score: %d", displayScore));
+
 	_btnRestart = static_cast<ui::Button*>(rootNode->getChildByName("Restart"));
 	_btnRestart->addTouchEventListener(CC_CALLBACK_2(GameOver::RestartButtonPressed, this));
 	_btnRestart->setPosition(Vec2(winSize.width*0.5f, winSize.height*0.60f));

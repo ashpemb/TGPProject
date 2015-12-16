@@ -76,6 +76,7 @@ void MenuScreen::StartButtonPressed(Ref *pSender, cocos2d::ui::Widget::TouchEven
 
 void MenuScreen::StartGame()
 {
+	Score::sharedScore()->setScore();
 	auto gameScreen = new Level1();
 	CCDirector::getInstance()->replaceScene(gameScreen->createScene());
 	auto winSize = Director::getInstance()->getVisibleSize();

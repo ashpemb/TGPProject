@@ -55,7 +55,6 @@ public:
 private:
 	cocos2d::ui::Button*    _btnPause;
 	cocos2d::ui::Text*		_score;
-	Score*					gameScore;
 	int						newScore = 1;
 };
 

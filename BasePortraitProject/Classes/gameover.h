@@ -6,6 +6,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "menuscreen.h"
 #include "stdio.h"
+#include "Score.h"
 
 #include <iomanip>
 USING_NS_CC;
@@ -36,6 +37,7 @@ private:
 // buttons
 	cocos2d::ui::Button*    _btnRestart;
 	cocos2d::ui::Button*	_btnExit;
+	cocos2d::ui::Text*		_score;
 
 };
 

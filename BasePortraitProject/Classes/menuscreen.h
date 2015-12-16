@@ -2,7 +2,7 @@
 #define __MENU_SCENE_H__
 
 #include "Level1.h"
-
+#include "Score.h"
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 #include "cocostudio/CocoStudio.h"
