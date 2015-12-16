@@ -152,8 +152,10 @@ xcopy /Y /Q "$(COCOS_FRAMEWORKS)\cocos2d-x-3.8\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\gameover.cpp" />
     <ClCompile Include="..\Classes\Level1.cpp" />
     <ClCompile Include="..\Classes\menuscreen.cpp" />
+    <ClCompile Include="..\Classes\Pause.cpp" />
     <ClCompile Include="..\Classes\Player.cpp" />
     <ClCompile Include="..\Classes\Projectile.cpp" />
+    <ClCompile Include="..\Classes\Score.cpp" />
     <ClCompile Include="..\Classes\Spawner.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -164,8 +166,10 @@ xcopy /Y /Q "$(COCOS_FRAMEWORKS)\cocos2d-x-3.8\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\gameover.h" />
     <ClInclude Include="..\Classes\Level1.h" />
     <ClInclude Include="..\Classes\menuscreen.h" />
+    <ClInclude Include="..\Classes\Pause.h" />
     <ClInclude Include="..\Classes\Player.h" />
     <ClInclude Include="..\Classes\Projectile.h" />
+    <ClInclude Include="..\Classes\Score.h" />
     <ClInclude Include="..\Classes\Spawner.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
