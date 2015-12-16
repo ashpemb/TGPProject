@@ -15,6 +15,9 @@ USING_NS_CC;
 #include "Enemy.h"
 #include "Spawner.h"
 #include "gameover.h"
+#include "Score.h"
+
+using namespace std;
 
 class Level1 : public cocos2d::Layer
 {
@@ -37,6 +40,8 @@ public:
 
 	void OpenPauseMenu();
 
+	void updateScoreSecond(float);
+
 	// implement the "static create()" method manually
 	CREATE_FUNC(Level1);
 
@@ -49,6 +54,9 @@ public:
 
 private:
 	cocos2d::ui::Button*    _btnPause;
+	cocos2d::ui::Text*		_score;
+	Score*					gameScore;
+	int						newScore = 1;
 };
 
 #endif // __LEVEL1_SCENE_H__

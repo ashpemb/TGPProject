@@ -4,6 +4,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "SimpleAudioEngine.h"
+#include "stdio.h"
 USING_NS_CC;
 using namespace cocostudio::timeline;
 #include <algorithm>
@@ -37,6 +38,10 @@ bool Level1::init()
 	auto rootNode = CSLoader::createNode("Level_1.csb");
 	addChild(rootNode);
 
+	gameScore = new Score();
+
+	_score = (cocos2d::ui::Text*)rootNode->getChildByName("Score");
+
 	player = Player::create();
 	player->setName("Player");
 	player->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, 80));
@@ -64,7 +69,8 @@ bool Level1::init()
 	audio->getInstance()->preloadBackgroundMusic("level1music.mp3");
 	audio->getInstance()->playBackgroundMusic("level1music.mp3", true);
 
-	scheduleUpdate();
+	this->scheduleUpdate();
+	this->schedule(schedule_selector(Level1::updateScoreSecond), 1.0f / newScore);
 
 	return true;
 }
@@ -73,6 +79,14 @@ void Level1::update(float delta)
 {
 	player->setTouchPos(touchPos, touching);
 	//CCLOG("player pos %f, %f", player->getPositionX(), player->getPositionY());
+
+	int displayScore = gameScore->getScore();
+	_score->setString(StringUtils::format("%d", displayScore));
+}
+
+void Level1::updateScoreSecond(float something)
+{
+	gameScore->updateScore(newScore);
 }
 
 bool Level1::onContactBegin(PhysicsContact& contact)
@@ -91,6 +105,7 @@ bool Level1::onContactBegin(PhysicsContact& contact)
 			if (enemy->health <= 0)
 			{
 				enemy->die();
+				gameScore->updateScore(10);
 			}
 		}
 		else if (body->getCategoryBitmask() == Bullet::categoryBitmaskPlayerBullet

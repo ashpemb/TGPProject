@@ -54,6 +54,17 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
+          <AbstractNodeData Name="Score" ActionTag="1374413556" Tag="10" IconVisible="False" LeftMargin="458.6215" RightMargin="92.3785" TopMargin="23.7156" BottomMargin="916.2844" FontSize="24" LabelText="0" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="12.0000" Y="24.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="503.1215" Y="926.2844" />
+            <Scale ScaleX="1.5846" ScaleY="2.0118" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.7861" Y="0.9649" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>
