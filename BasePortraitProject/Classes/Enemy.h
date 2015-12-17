@@ -1,7 +1,11 @@
 #pragma once
 
+#include <string>
+using namespace std;
 #include "cocos2d.h"
+#include "SimpleAudioEngine.h"
 USING_NS_CC;
+using namespace CocosDenshion;
 #include "Bullet.h"
 #include "Player.h"
 
@@ -22,5 +26,8 @@ public:
 	Node* target;
 
 	static const int categoryBitmask = 0x1;
+	static const string hitSound;
+	static const string shootSound;
+	static const string dieSound;
 };
 

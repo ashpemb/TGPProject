@@ -37,6 +37,10 @@
         <Project Name="GameOver.csd" Type="Scene" />
         <Project Name="PauseScene.csd" Type="Scene" />
         <Image Name="enemy_0.png" />
+        <Audio Name="enemy_die.wav" />
+        <Audio Name="enemy_hit.wav" />
+        <Audio Name="enemy_shoot.wav" />
+        <Audio Name="player_die.wav" />
       </RootFolder>
     </Group>
   </SolutionFolder>

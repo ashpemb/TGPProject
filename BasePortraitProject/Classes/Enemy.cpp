@@ -1,5 +1,8 @@
 #include "Enemy.h"
 
+const string Enemy::hitSound = "enemy_hit.wav";
+const string Enemy::shootSound = "enemy_shoot.wav";
+const string Enemy::dieSound = "enemy_die.wav";
 
 Enemy::Enemy()
 {
@@ -77,10 +80,12 @@ void Enemy::shoot()
 	Bullet* bullet = Bullet::create(getPosition() + Vec2(0, -50), shootDir, false);
 	bullet->speed *= 0.5f;
 	getParent()->addChild(bullet);
+	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(shootSound.c_str());
 }
 
 void Enemy::die()
 {
 	//add score, explode, etc
 	getParent()->removeChild(this);
+	SimpleAudioEngine::getInstance()->playEffect(dieSound.c_str());
 }

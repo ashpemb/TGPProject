@@ -65,9 +65,13 @@ bool Level1::init()
 	collisionListener->onContactBegin = CC_CALLBACK_1(Level1::onContactBegin, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(collisionListener, rootNode);
 
-	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	auto audio = SimpleAudioEngine::getInstance();
 	audio->getInstance()->preloadBackgroundMusic("level1music.mp3");
 	audio->getInstance()->playBackgroundMusic("level1music.mp3", true);
+	audio->preloadEffect(Enemy::shootSound.c_str());
+	audio->preloadEffect(Enemy::hitSound.c_str());
+	audio->preloadEffect(Enemy::dieSound.c_str());
+	audio->preloadEffect(Player::dieSound.c_str());
 
 	this->scheduleUpdate();
 	this->schedule(schedule_selector(Level1::updateScoreSecond), 1.0f / newScore);
@@ -107,6 +111,10 @@ bool Level1::onContactBegin(PhysicsContact& contact)
 				enemy->die();
 				Score::sharedScore()->updateScore(10);
 			}
+			else
+			{
+				SimpleAudioEngine::getInstance()->playEffect(Enemy::hitSound.c_str());
+			}
 		}
 		else if (body->getCategoryBitmask() == Bullet::categoryBitmaskPlayerBullet
 			&& otherBody->getCategoryBitmask() == Enemy::categoryBitmask)
@@ -116,11 +124,13 @@ bool Level1::onContactBegin(PhysicsContact& contact)
 		else if (body->getCategoryBitmask() == Player::categoryBitmask
 			&& otherBody->getCategoryBitmask() == Enemy::categoryBitmask)
 		{
+			SimpleAudioEngine::getInstance()->playEffect(Player::dieSound.c_str());
 			CCDirector::getInstance()->replaceScene(GameOver::createScene());
 		}
 		else if (body->getCategoryBitmask() == Player::categoryBitmask
 			&& otherBody->getCategoryBitmask() == Bullet::categoryBitmaskEnemyBullet)
 		{
+			SimpleAudioEngine::getInstance()->playEffect(Player::dieSound.c_str());
 			CCDirector::getInstance()->replaceScene(GameOver::createScene());
 		}
 	}

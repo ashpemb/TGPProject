@@ -1,10 +1,11 @@
 #include "Player.h"
 
+const string Player::dieSound = "player_die.wav";
+
 Player::Player()
 {
 	
 }
-
 
 Player::~Player()
 {

@@ -4,6 +4,7 @@
 #include "cocostudio/CocoStudio.h"
 USING_NS_CC;
 #include <algorithm>
+#include <string>
 using namespace std;
 #include "Bullet.h"
 #include "Enemy.h"
@@ -26,5 +27,6 @@ public:
 	bool touching;
 
 	static const int categoryBitmask = 0x2;
+	static const string dieSound;
 };
 
